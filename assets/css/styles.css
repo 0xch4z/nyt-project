@@ -21,3 +21,15 @@ form > * {
 .form-footer {
 
 }
+
+#results {
+	margin: 50px 25px;
+}
+
+.divider {
+	margin: 50px 0;
+}
+
+a .result {
+	text-decoration: none;
+}

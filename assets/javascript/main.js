@@ -8,7 +8,8 @@
  */
 function makeQuery(term, quantity, startYear, endYear) {
   const baseUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
-  let url = `${baseUrl}?q=${term}&fq=${quantity}`;
+  const key = 'f667637ebe0841daa7a88e80ce76b304'
+  let url = `${baseUrl}?api-key=${key}&q=${term}&fq=${quantity}`;
   if (startYear) url += `&begin_date=${startYear}`;
   if (endYear) url += `&end_date=${endYear}`;
   return url;
@@ -20,22 +21,22 @@ function makeQuery(term, quantity, startYear, endYear) {
  */
 function fetchArticles(url) {
   // make ajax request
-  $('results').empty();
+  $('#results').empty();
   $.getJSON(url, handleRequest);
 }
 
 /**
  * Handle request
- * @param {object} response 
+ * @param {object} response
  */
 function handleRequest(response) {
   // get data from response object
-  const results = response.docs;
+  const results = response.response.docs;
   // iterate over results
   for (const result of results) {
     const heading = result.headline.main;
-    const byLine = result.byLine;
-    const section = result.section_name;
+    const byLine = result.byline.original;
+    const section = result.section_name || 'None';
     const timestamp = result.pub_date;
     const url = result.web_url;
     // make result element
@@ -57,10 +58,10 @@ $('#search-form').on('submit', function(e) {
   e.preventDefault();
   const values = $(this).serialize();
   const query = makeQuery(
-    values.term,
-    values.quantity || 5,
-    values.startYear,
-    values.endYear
+    values.search_term,
+    values.result_quantity || 5,
+    values.start_year,
+    values.end_year
   );
   fetchArticles(query);
 });
