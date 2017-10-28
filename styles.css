@@ -1,0 +1,29 @@
+.row{
+	padding: 50px;
+	color: red;
+	background: #283593;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top:20px;
+}
+
+.cols12{
+	font-family: Times New Romam;
+	font-size: 70px;
+	text-align: center;
+	color: white;
+}
+
+#search-form{
+	background: gray;
+	margin-top: 20px;
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom: 20px;
+}
+
+#cols12{
+	background: gray;
+
+}
+
