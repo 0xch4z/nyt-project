@@ -1,29 +1,23 @@
-.row{
-	padding: 50px;
-	color: red;
-	background: #283593;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top:20px;
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+* {
+	font-family: 'Quicksand', sans;
 }
 
-.cols12{
-	font-family: Times New Romam;
-	font-size: 70px;
+h1 {
+	font-size: 80px;
 	text-align: center;
-	color: white;
+	color: #01579b;
+}
+
+form > * {
+	margin: 20px;
 }
 
 #search-form{
-	background: gray;
-	margin-top: 20px;
-	margin-left:20px;
-	margin-right:20px;
-	margin-bottom: 20px;
+	margin: 20px;
 }
 
-#cols12{
-	background: gray;
+.form-footer {
 
 }
-
