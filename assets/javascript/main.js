@@ -55,13 +55,27 @@ function handleRequest(response) {
 }
 
 $('#search-form').on('submit', function(e) {
+  // prevent refresh
   e.preventDefault();
-  const values = $(this).serialize();
+  // format values to json
+  let values = {}
+  $(this).serializeArray().map(function(x){
+    values[x.name] = x.value;
+  })
+  console.log(values)
+  // make query
   const query = makeQuery(
     values.search_term,
     values.result_quantity || 5,
     values.start_year,
     values.end_year
   );
+  // fetch articles
   fetchArticles(query);
 });
+
+function clear() {
+  $('#search-form').children().each(function() {
+    $(this).val('')
+  })
+}
