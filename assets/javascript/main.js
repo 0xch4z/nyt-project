@@ -74,8 +74,6 @@ $('#search-form').on('submit', function(e) {
   fetchArticles(query);
 });
 
-function clear() {
-  $('#search-form').children().each(function() {
-    $(this).val('')
-  })
-}
+$('#clear').on('click', function() {
+  $('#results').empty()
+})
